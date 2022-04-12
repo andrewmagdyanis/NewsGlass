@@ -1,11 +1,5 @@
-//
-//  NewsGlassApp.swift
-//  NewsGlass
-//
-//  Created by Andrew Magdy on 07/04/2022.
-//
-
 import SwiftUI
+import Moya
 
 @main
 struct NewsGlassApp: App {

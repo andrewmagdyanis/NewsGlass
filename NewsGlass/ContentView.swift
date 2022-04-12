@@ -1,21 +1,44 @@
-//
-//  ContentView.swift
-//  NewsGlass
-//
-//  Created by Andrew Magdy on 07/04/2022.
-//
-
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
+    var networkManager = NetworkManager()
+    
+    init() {
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().backgroundColor = UIColor (Constants.Colors.mainBackgroundColor)
+        UIToolbar.appearance().backgroundColor = UIColor(Constants.Colors.mainBackgroundColor)
+        UIWindow.appearance().backgroundColor = UIColor(Constants.Colors.mainBackgroundColor)
+        UIScrollView.appearance().backgroundColor = UIColor(Constants.Colors.mainBackgroundColor)
+        
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    var body: some View {
+        Group {
+            TabView {
+                NavigationView {
+                    NewsHomePage(apiType: .viewed(period: 7))
+                        .navigationBarTitle(Constants.PagesTitles.homepage + " Most Viewed", displayMode: .inline)
+                }.navigationViewStyle(.stack)
+                .tabItem {
+                    Label("Most Viewed", systemImage: "text.magnifyingglass")
+                }
+                
+                NavigationView {
+                    NewsHomePage(apiType: .shared(period: 7))
+                        .navigationBarTitle(Constants.PagesTitles.homepage + " Most Shared", displayMode: .inline)
+                }.navigationViewStyle(.stack)
+                .tabItem {
+                    Label("Most Shared", systemImage: "arrowshape.bounce.right")
+                }
+                
+                NavigationView {
+                    NewsHomePage(apiType: .emailed(period: 7))
+                        .navigationBarTitle(Constants.PagesTitles.homepage + " Most Emailed", displayMode: .inline)
+                }.navigationViewStyle(.stack)
+                .tabItem {
+                    Label("Most Emailed", systemImage: "mail")
+                }
+            }
+        }.environmentObject(networkManager)
     }
 }
