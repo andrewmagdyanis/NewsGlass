@@ -3,7 +3,7 @@ This repository represents IOS News app based on New York Times Api.
 
 ---
 ## Project Tree
-
+```bash
 ├───NewsGlass
 │   │   Constants.swift
 │   │   ContentView.swift
@@ -64,4 +64,4 @@ This repository represents IOS News app based on New York Times Api.
 └───NewsGlassUITests
         NewsGlassUITests.swift
         NewsGlassUITestsLaunchTests.swift
-        
+```
