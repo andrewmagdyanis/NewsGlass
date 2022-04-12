@@ -5,13 +5,16 @@ struct ImagePreview: View {
     var mediaImage: MediaMetadatum
     var timeSincePublishedDate: TimeSinceDate
     var timeSinceUpdatedDate: TimeSinceDate
+    var underImageTextColor: Color
 
-    init(mediaImage: MediaMetadatum, timeSincePublishedDate: TimeSinceDate, timeSinceUpdatedDate: TimeSinceDate ) {
+    init(mediaImage: MediaMetadatum, timeSincePublishedDate: TimeSinceDate, timeSinceUpdatedDate: TimeSinceDate, underImageTextColor: Color) {
         self.mediaImage = mediaImage
         
         self.timeSincePublishedDate = timeSincePublishedDate
     
         self.timeSinceUpdatedDate = timeSinceUpdatedDate
+        
+        self.underImageTextColor = underImageTextColor
     }
     
     var body: some View {
@@ -23,9 +26,9 @@ struct ImagePreview: View {
                         VStack {
                             image.resizable().scaledToFill().frame(width: CGFloat(mediaImage.width), height: CGFloat(mediaImage.height)).clipped()
 
-                            Text(timeSincePublishedDate.timeString).frame(width: UIScreen.main.bounds.size.width, alignment: .leading).padding(.leading, CGFloat(10)).foregroundColor(Color.white)
+                            Text(timeSincePublishedDate.timeString).frame(width: UIScreen.main.bounds.size.width, alignment: .leading).padding(.leading, CGFloat(20)).foregroundColor(underImageTextColor)
 
-                            Text("last updated " + timeSinceUpdatedDate.timeString).frame(width: UIScreen.main.bounds.size.width, alignment: .leading).padding(.leading, CGFloat(10)).foregroundColor(Color.white)
+                            Text("last updated " + timeSinceUpdatedDate.timeString).frame(width: UIScreen.main.bounds.size.width, alignment: .leading).padding(.leading, CGFloat(20)).foregroundColor(underImageTextColor)
                         }.padding(.bottom, CGFloat(10)).frame(width: UIScreen.main.bounds.size.width-30).padding(.leading, CGFloat(10))
                     
                     case .failure(_):

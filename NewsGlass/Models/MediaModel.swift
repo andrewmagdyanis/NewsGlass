@@ -2,7 +2,7 @@ import Foundation
 
 class Media: Codable, Identifiable {
     let type: MediaType
-    let subtype: Subtype
+    let subtype: String
     let caption, copyright: String
     let approvedForSyndication: Int
     let mediaMetadata: [MediaMetadatum]
@@ -13,7 +13,7 @@ class Media: Codable, Identifiable {
         case mediaMetadata = "media-metadata"
     }
 
-    init(type: MediaType, subtype: Subtype, caption: String, copyright: String, approvedForSyndication: Int, mediaMetadata: [MediaMetadatum]) {
+    init(type: MediaType, subtype: String, caption: String, copyright: String, approvedForSyndication: Int, mediaMetadata: [MediaMetadatum]) {
         self.type = type
         self.subtype = subtype
         self.caption = caption

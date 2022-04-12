@@ -38,7 +38,7 @@ struct NewsComponent: View {
                     ForEach(newsElement.media) { m in
                         if m.mediaMetadata.count > 0 {
                             let mediaImage: MediaMetadatum = m.mediaMetadata[m.mediaMetadata.count-1]
-                            ImagePreview(mediaImage: mediaImage, timeSincePublishedDate: timeSincePublishedDate, timeSinceUpdatedDate: timeSinceUpdatedDate)
+                            ImagePreview(mediaImage: mediaImage, timeSincePublishedDate: timeSincePublishedDate, timeSinceUpdatedDate: timeSinceUpdatedDate, underImageTextColor: Color.black)
                         }
                     }
                 }

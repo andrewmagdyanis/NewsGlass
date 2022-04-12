@@ -62,7 +62,7 @@ struct NewsHomePage: View {
                     } else {
                         ForEach (newsList) { newsElement in
                             NavigationLink {
-                                NewsComponent(newsElement: newsElement).navigationTitle(newsElement.section)
+                                DetailedNewsComponent(newsElement: newsElement).navigationTitle(newsElement.section).frame(alignment: .top)
                             } label: {
                                 NewsComponent(newsElement: newsElement)
                             }

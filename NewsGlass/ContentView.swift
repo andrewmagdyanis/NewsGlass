@@ -38,7 +38,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Most Emailed", systemImage: "mail")
                 }
-            }
+            }.background(Constants.Colors.mainBackgroundColor)
         }.environmentObject(networkManager)
     }
 }

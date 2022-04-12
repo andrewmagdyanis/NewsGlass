@@ -11,7 +11,7 @@ class NewsElementModel: Codable, Identifiable {
     let nytdsection, adxKeywords: String
     let column: JSONNull?
     let byline: String
-    let type: ResultType
+    let type: String
     let title, abstract: String
     let desFacet, orgFacet, perFacet, geoFacet: [String]
     let media: [Media]
@@ -50,7 +50,7 @@ class NewsElementModel: Codable, Identifiable {
         }
     }
     
-    init(uri: String, url: String, id: Int, assetID: Int, source: String, publishedDateString: String, updatedString: String, section: String, subsection: String, nytdsection: String, adxKeywords: String, column: JSONNull?, byline: String, type: ResultType, title: String, abstract: String, desFacet: [String], orgFacet: [String], perFacet: [String], geoFacet: [String], media: [Media], etaID: Int) {
+    init(uri: String, url: String, id: Int, assetID: Int, source: String, publishedDateString: String, updatedString: String, section: String, subsection: String, nytdsection: String, adxKeywords: String, column: JSONNull?, byline: String, type: String, title: String, abstract: String, desFacet: [String], orgFacet: [String], perFacet: [String], geoFacet: [String], media: [Media], etaID: Int) {
 
         self.publishedDateString = publishedDateString
         self.updatedString = updatedString
@@ -75,16 +75,6 @@ class NewsElementModel: Codable, Identifiable {
         self.media = media
         self.etaID = etaID
     }
-}
-
-
-enum Subtype: String, Codable {
-    case photo = "photo"
-}
-
-
-enum ResultType: String, Codable {
-    case article = "Article"
 }
 
 // MARK: - Encode/decode helpers
