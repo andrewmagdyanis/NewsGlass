@@ -2,6 +2,9 @@
 This repository represents IOS News app based on New York Times Api. 
 
 ---
+## Dmeo Video
+https://share.icloud.com/photos/059ZQVQ27py3PKI8h0FbBWCQg
+---
 ## Project Tree
 ```bash
 ├───NewsGlass
